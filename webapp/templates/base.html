@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "Ecommerce ML App" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<!-- 🔥 NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Eco Ecommerce</div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+</nav>
+
+<!-- 🔥 PAGE CONTENT -->
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>📊 Executive Dashboard</h1>
+
+<form method="POST" class="filter-bar">
+
+    <select name="state">
+        <option>All</option>
+        {% for s in states %}
+            <option value="{{ s }}">{{ s }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="month">
+        <option>All</option>
+        {% for m in months %}
+            <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="category">
+        <option>All</option>
+        {% for c in categories %}
+            <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="btn-primary">Apply Filters</button>
+
+</form>
+
+<!-- 🔥 KPI CARDS -->
+<div class="kpi-container">
+
+    <div class="kpi-card">💰 Revenue<br><b>{{ total_revenue }}</b></div>
+    <div class="kpi-card">📦 Orders<br><b>{{ total_orders }}</b></div>
+    <div class="kpi-card">📊 Avg Order<br><b>{{ avg_order }}</b></div>
+    <div class="kpi-card">🚚 Delay %<br><b>{{ delayed_pct }}%</b></div>
+    <div class="kpi-card">⭐ High Value %<br><b>{{ high_value_pct }}%</b></div>
+    <div class="kpi-card">⏱ Avg Delivery<br><b>{{ avg_delivery }}</b></div>
+
+</div>
+
+<!-- 🔥 CHARTS -->
+<div class="card">
+    <h3>📈 Revenue Trend</h3>
+    <div id="revenueChart"></div>
+</div>
+
+<div class="card">
+    <h3>💳 Payment Split</h3>
+    <div id="paymentChart"></div>
+</div>
+
+<div class="card">
+    <h3>🌍 Orders by State</h3>
+    <div id="stateChart"></div>
+</div>
+
+</div>
+
+<!-- 🔥 Plotly -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+
+const revenue = {{ revenue_trend | tojson }};
+const payment = {{ payment_split | tojson }};
+const state = {{ state_orders | tojson }};
+
+// 📈 Revenue Trend
+Plotly.newPlot("revenueChart", [{
+    x: Object.keys(revenue),
+    y: Object.values(revenue),
+    type: "scatter",
+    mode: "lines+markers"
+}]);
+
+// 💳 Payment Split
+Plotly.newPlot("paymentChart", [{
+    labels: Object.keys(payment),
+    values: Object.values(payment),
+    type: "pie"
+}]);
+
+// 🌍 Orders by State
+Plotly.newPlot("stateChart", [{
+    x: Object.keys(state),
+    y: Object.values(state),
+    type: "bar"
+}]);
+
+</script>
+
+{% endblock %}

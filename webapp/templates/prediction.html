@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="fade-in">📊 Prediction Dashboard</h1>
+
+    <form method="POST">
+
+        <!-- 🔥 MODEL SELECT -->
+        <div class="card fade-in">
+            <h3>⚙️ Select Prediction Type</h3>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Prediction Type</label>
+                    <select name="model_type" id="model_type">
+                        <option value="high_value">High Value Prediction</option>
+                        <option value="delay">Delivery Delay Prediction</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 💳 PAYMENT DETAILS -->
+        <div class="card fade-in">
+            <h3>💳 Payment Details</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Payment Sequential</label>
+                    <input type="number" name="payment_sequential" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Installments</label>
+                    <input type="number" name="payment_installments" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Payment Value</label>
+                    <input type="number" step="0.01" name="payment_value" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Payment Type</label>
+                    <select name="payment_type">
+                        <option value="credit_card">Credit Card</option>
+                        <option value="debit_card">Debit Card</option>
+                        <option value="voucher">Voucher</option>
+                        <option value="wallet">Wallet</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 📦 PRODUCT DETAILS -->
+        <div class="card fade-in">
+            <h3>📦 Product Details</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Weight (g)</label>
+                    <input type="number" step="0.1" name="product_weight_g">
+                </div>
+
+                <div class="input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" step="0.1" name="product_height_cm">
+                </div>
+
+                <div class="input-group">
+                    <label>Volume</label>
+                    <input type="number" step="0.1" name="product_volume_cm3">
+                </div>
+
+                <div class="input-group">
+                    <label>Product Category</label>
+                    <select name="product_category_name">
+                        <option value="toys">Toys</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture_decor">Furniture</option>
+                        <option value="sports_leisure">Sports</option>
+                        <option value="health_beauty">Health</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 📅 ORDER INFO -->
+        <div class="card fade-in">
+            <h3>📅 Order Info</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Approval Time (hrs)</label>
+                    <input type="number" step="0.1" name="approval_time_hours">
+                </div>
+
+                <div class="input-group">
+                    <label>Month (1-12)</label>
+                    <input type="number" name="order_month">
+                </div>
+
+                <div class="input-group">
+                    <label>Day Type</label>
+                    <select name="is_weekend">
+                        <option value="0">Weekday</option>
+                        <option value="1">Weekend</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Customer State</label>
+                    <select name="customer_state">
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                        <option value="BA">BA</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ⚙️ ADVANCED -->
+        <div class="card fade-in">
+            <h3>⚙️ Advanced Features</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Total Cost</label>
+                    <input type="number" step="0.1" name="total_cost">
+                </div>
+
+                <div class="input-group">
+                    <label>Product Density</label>
+                    <input type="number" step="0.01" name="product_density">
+                </div>
+
+                <div class="input-group">
+                    <label>Price Bucket (0-4)</label>
+                    <input type="number" name="price_bucket">
+                </div>
+
+                <div class="input-group">
+                    <label>Shipping Type</label>
+                    <select name="high_shipping">
+                        <option value="0">Normal</option>
+                        <option value="1">High</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Expense Level</label>
+                    <select name="is_expensive">
+                        <option value="0">Normal</option>
+                        <option value="1">Expensive</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Product Size</label>
+                    <select name="is_large_product">
+                        <option value="0">Small</option>
+                        <option value="1">Large</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Installment Level</label>
+                    <select name="high_installments">
+                        <option value="0">Low</option>
+                        <option value="1">High</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Category Type</label>
+                    <select name="top_category">
+                        <option value="0">Other</option>
+                        <option value="1">Top Category</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🚀 SUBMIT -->
+        <button type="submit" class="btn">🚀 Predict</button>
+
+    </form>
+    {% if result is none %}
+    <div class="card" style="text-align:center; margin-top:30px;">
+        <p style="color:#6b7280;">🚀 Enter details and click Predict to see results</p>
+    </div>
+    {% endif %}
+
+    <!-- 🔮 RESULT -->
+    {% if result is not none %}
+    <div class="result-card">
+
+        <h2>🔮 Prediction Result</h2>
+
+        <!-- 🔥 STATUS BADGE -->
+        <div class="result-status {{ result_class }}">
+            {{ result_label }}
+        </div>
+
+        <!-- 📊 PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-bar {{ result_class }}" data-width="{{ probability }}"></div>
+        </div>
+
+        <!-- 📈 PROBABILITY -->
+        <p class="prob-text">
+            Confidence: <strong>{{ probability }}%</strong>
+        </p>
+
+        <!-- 🧠 INSIGHT -->
+        <p class="result-insight">
+            {{ insight }}
+        </p>
+
+    </div>
+    {% endif %}
+    ```
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const bar = document.querySelector(".progress-bar");
+    if (bar) {
+        const width = bar.getAttribute("data-width");
+        setTimeout(() => {
+            bar.style.width = width + "%";
+        }, 200);
+    }
+});
+</script>
+
+</body>
+</html>
+
+
+</div>
+
+<script>
+function toggleForm() {
+    const model = document.getElementById("model_type").value;
+
+    // future: you can customize fields per model
+    console.log("Selected:", model);
+}
+</script>
+
+{% endblock %}
