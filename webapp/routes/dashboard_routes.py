@@ -14,9 +14,8 @@ def dashboard():
     selected_month = request.form.get("month")
     selected_category = request.form.get("category")
 
-    # =========================
-    # 🔥 APPLY FILTERS
-    # =========================
+    
+    # APPLY FILTERS
     if selected_state and selected_state != "All":
         df = df[df["customer_state"] == selected_state]
 
@@ -26,9 +25,9 @@ def dashboard():
     if selected_category and selected_category != "All":
         df = df[df["product_category_name"] == selected_category]
 
-    # =========================
-    # 🔥 KPIs
-    # =========================
+    
+    # KPIs
+    
     total_revenue = round(df["payment_value"].sum(), 2)
     total_orders = len(df)
     avg_order = round(df["payment_value"].mean(), 2)
@@ -37,9 +36,9 @@ def dashboard():
     high_value_pct = round(df["high_value"].mean() * 100, 2)
     avg_delivery = round(df["delivery_time_days"].mean(), 2)
 
-    # =========================
-    # 📊 CHART DATA
-    # =========================
+    
+    # CHART DATA
+    
     revenue_trend = df.groupby("order_month")["payment_value"].sum().to_dict()
     payment_split = df["payment_type"].value_counts().to_dict()
     state_orders = df["customer_state"].value_counts().to_dict()

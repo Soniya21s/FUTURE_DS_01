@@ -1,6 +1,5 @@
-/* =========================
-   GLOBAL STYLES
-========================= */
+/*
+   GLOBAL STYLES */
 
 body {
     margin: 0;
@@ -16,9 +15,8 @@ body {
     color: #1f2937;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/*
+   NAVBAR */
 
 .navbar {
     display: flex;
@@ -42,7 +40,7 @@ body {
 }
 
 .nav-links {
-    list-style: none;   /* 🔥 REMOVE BULLETS */
+    list-style: none;   /* REMOVE BULLETS */
     display: flex;
     gap: 25px;
     margin: 0;
@@ -59,9 +57,7 @@ body {
     opacity: 0.7;
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+/* HERO SECTION */
 
 .hero {
     text-align: center;
@@ -111,9 +107,7 @@ body {
     color: white;
 }
 
-/* =========================
-   FEATURES SECTION
-========================= */
+/* FEATURES SECTION */
 
 .features {
     display: flex;
@@ -139,16 +133,14 @@ body {
     cursor: pointer;
 }
 
-/* 🔥 HOVER POP EFFECT */
+/* HOVER POP EFFECT */
 
 .feature-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
 }
 
-/* =========================
-   KPI + CARDS (DASHBOARD)
-========================= */
+/* KPI + CARDS (DASHBOARD) */
 
 .kpi-container {
     display: flex;
@@ -178,9 +170,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* =========================
-   GENERIC CARD
-========================= */
+/*  GENERIC CARD */
 
 .card {
     background: rgba(255,255,255,0.95);
@@ -191,9 +181,7 @@ body {
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
-/* =========================
-   FILTER BAR
-========================= */
+/* FILTER BAR */
 
 .filter-bar {
     display: flex;
@@ -208,9 +196,7 @@ body {
     border: 1px solid #ddd;
 }
 
-/* =========================
-   FADE-IN ANIMATION
-========================= */
+/* FADE-IN ANIMATION */
 
 .fade-in {
     animation: fadeIn 0.8s ease-in-out;
@@ -227,9 +213,7 @@ body {
     }
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* CONTAINER */
 
 .container {
     max-width: 1200px;
@@ -237,9 +221,7 @@ body {
     padding: 20px;
 }
 
-/* =========================
-   FORM GRID
-========================= */
+/* FORM GRID */
 
 .form-grid {
     display: grid;
@@ -247,9 +229,7 @@ body {
     gap: 15px;
 }
 
-/* =========================
-   INPUT GROUP (FLOATING STYLE)
-========================= */
+/* INPUT GROUP (FLOATING STYLE) */
 
 .input-group {
     position: relative;
@@ -269,7 +249,7 @@ body {
     transition: all 0.2s;
 }
 
-/* 🔥 FOCUS EFFECT */
+/* FOCUS EFFECT */
 .input-group input:focus,
 .input-group select:focus {
     border-color: #4f46e5;
@@ -349,9 +329,7 @@ body {
     color: #4f46e5;
 }
 
-/* =========================
-   RESULT DASHBOARD CARD
-========================= */
+/* RESULT DASHBOARD CARD */
 
 .result-card {
     margin-top: 40px;
@@ -395,9 +373,7 @@ body {
     background: linear-gradient(135deg, #10b981, #059669);
 }
 
-/* =========================
-   PROGRESS BAR
-========================= */
+/* PROGRESS BAR */
 
 .progress-container {
     width: 100%;
@@ -429,9 +405,7 @@ body {
     background: #10b981;
 }
 
-/* =========================
-   TEXT
-========================= */
+/* TEXT */
 
 .prob-text {
     font-size: 16px;
@@ -444,9 +418,7 @@ body {
     font-size: 14px;
 }
 
-/* =========================
-   ANIMATION
-========================= */
+/* ANIMATION */
 
 @keyframes popIn {
     from {

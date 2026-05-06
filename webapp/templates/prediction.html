@@ -3,13 +3,13 @@
 {% block content %}
 <div class="container">
 
-    <h1 class="fade-in">📊 Prediction Dashboard</h1>
+    <h1 class="fade-in">Prediction Dashboard</h1>
 
     <form method="POST">
 
-        <!-- 🔥 MODEL SELECT -->
+        <!-- MODEL SELECT -->
         <div class="card fade-in">
-            <h3>⚙️ Select Prediction Type</h3>
+            <h3>Select Prediction Type</h3>
 
             <div class="form-grid">
                 <div class="input-group">
@@ -22,9 +22,9 @@
             </div>
         </div>
 
-        <!-- 💳 PAYMENT DETAILS -->
+        <!-- PAYMENT DETAILS -->
         <div class="card fade-in">
-            <h3>💳 Payment Details</h3>
+            <h3>Payment Details</h3>
 
             <div class="form-grid">
 
@@ -56,9 +56,9 @@
             </div>
         </div>
 
-        <!-- 📦 PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
         <div class="card fade-in">
-            <h3>📦 Product Details</h3>
+            <h3>Product Details</h3>
 
             <div class="form-grid">
 
@@ -91,9 +91,9 @@
             </div>
         </div>
 
-        <!-- 📅 ORDER INFO -->
+        <!-- ORDER INFO -->
         <div class="card fade-in">
-            <h3>📅 Order Info</h3>
+            <h3>Order Info</h3>
 
             <div class="form-grid">
 
@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        <!-- ⚙️ ADVANCED -->
+        <!-- ADVANCED -->
         <div class="card fade-in">
             <h3>⚙️ Advanced Features</h3>
 
@@ -192,7 +192,7 @@
             </div>
         </div>
 
-        <!-- 🚀 SUBMIT -->
+        <!-- SUBMIT -->
         <button type="submit" class="btn">🚀 Predict</button>
 
     </form>
@@ -202,28 +202,28 @@
     </div>
     {% endif %}
 
-    <!-- 🔮 RESULT -->
+    <!-- RESULT -->
     {% if result is not none %}
     <div class="result-card">
 
-        <h2>🔮 Prediction Result</h2>
+        <h2> Prediction Result</h2>
 
-        <!-- 🔥 STATUS BADGE -->
+        <!-- STATUS BADGE -->
         <div class="result-status {{ result_class }}">
             {{ result_label }}
         </div>
 
-        <!-- 📊 PROGRESS BAR -->
+        <!-- PROGRESS BAR -->
         <div class="progress-container">
             <div class="progress-bar {{ result_class }}" data-width="{{ probability }}"></div>
         </div>
 
-        <!-- 📈 PROBABILITY -->
+        <!-- PROBABILITY -->
         <p class="prob-text">
             Confidence: <strong>{{ probability }}%</strong>
         </p>
 
-        <!-- 🧠 INSIGHT -->
+        <!-- INSIGHT -->
         <p class="result-insight">
             {{ insight }}
         </p>
